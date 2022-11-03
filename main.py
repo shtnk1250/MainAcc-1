@@ -13,7 +13,7 @@ CHANNEL_ID = 994552773637062656
 
 rtoken = os.getenv("RTOKEN")
 header = {"Authorization": "Bearer {}".format(rtoken)}
-link="https://api.github.com/repos/noname201012345/Tram2/contents/"
+link="https://api.github.com/repos/noname201012345/MainAcc/contents/"
 
 @client.event
 async def on_ready():
