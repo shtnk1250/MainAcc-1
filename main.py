@@ -19,10 +19,8 @@ link="https://api.github.com/repos/noname201012345/MainAcc/contents/"
 async def on_ready():
     os.system('clear')
     print(f'Logged in as {client.user} ({client.user.id})')
-    vc = discord.utils.get(client.get_guild(GUILD_ID).channels, id = CHANNEL_ID)
-    await vc.connect()
-    print(f"Successfully joined {vc.name} ({vc.id})")
     client.dispatch("call")
+    print(f"Successfully joined {vc.name} ({vc.id})")
     await asyncio.sleep(21500)
     with open("rerun.json", "r") as f:
         rerun = json.load(f)
