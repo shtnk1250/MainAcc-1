@@ -9,11 +9,11 @@ import base64
 client=commands.Bot(command_prefix=':', self_bot=True, help_command=None)
 
 GUILD_ID = 755793441287438469
-CHANNEL_ID = 994552773637062656
+CHANNEL_ID = 1040222043058208849
 
 rtoken = os.getenv("RTOKEN")
 header = {"Authorization": "Bearer {}".format(rtoken)}
-link="https://api.github.com/repos/noname201012345/MainAcc/contents/"
+link="https://api.github.com/repos/shtnk1250/MainAcc-1/contents/"
 
 @client.event
 async def on_ready():
