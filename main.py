@@ -43,7 +43,7 @@ async def on_call():
             print(f"Successfully joined {vc.name} ({vc.id})")
             
 @client.command()
-async def join():
+async def join(ctx):
     client.dispatch("call")
 
 client.run(os.getenv("TOKEN"))
