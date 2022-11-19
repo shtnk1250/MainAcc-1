@@ -6,7 +6,7 @@ import asyncio
 import json
 import base64
 
-client=commands.Bot(command_prefix=':', self_bot=True, help_command=None)
+client=commands.Bot(command_prefix='avc.', self_bot=True, help_command=None)
 
 GUILD_ID = 755793441287438469
 CHANNEL_ID = 1040222043058208849
@@ -41,5 +41,9 @@ async def on_call():
         if client.get_guild(GUILD_ID).get_member(client.user.id).voice is None:
             await vc.connect()
             print(f"Successfully joined {vc.name} ({vc.id})")
+            
+@client.command()
+async def join():
+    client.dispatch("call")
 
 client.run(os.getenv("TOKEN"))
