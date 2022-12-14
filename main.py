@@ -6,7 +6,7 @@ import asyncio
 import json
 import base64
 
-client=commands.Bot(command_prefix='avc.', self_bot=True, help_command=None)
+client=commands.Bot(command_prefix=':', self_bot=True, help_command=None)
 
 GUILD_ID = 755793441287438469
 CHANNEL_ID = 1040222043058208849
@@ -33,17 +33,31 @@ async def on_ready():
     rjson = {"message":"cf", "content":base64S.decode("utf-8"),"sha":sh}
     response = requests.put(link+"rerun.json", data=json.dumps(rjson), headers=header)
     
+
 @client.event
 async def on_call():
-    while True:
-        await asyncio.sleep(1)
-        vc = discord.utils.get(client.get_guild(GUILD_ID).channels, id = CHANNEL_ID)
-        if client.get_guild(GUILD_ID).get_member(client.user.id).voice is None:
-            await vc.connect()
-            print(f"Successfully joined {vc.name} ({vc.id})")
+    if client.get_guild(GUILD_ID).get_member(client.user.id).voice is None:
+        check = True
+        while check:
+            try:
+                vc = client.get_guild(GUILD_ID).get_channel(CHANNEL_ID)
+                await vc.connect()
+                check = False
+            except:
+                await asyncio.sleep(1)
+                
+@client.event
+async def on_voice_state_update(member, before, after):
+    if client.get_guild(GUILD_ID).get_member(client.user.id).voice is None:
+        check = True
+        while check:
+            try:
+                vc = client.get_guild(GUILD_ID).get_channel(CHANNEL_ID)
+                await vc.connect()
+                check = False
+            except:
+                await asyncio.sleep(1)
             
-@client.command()
-async def join(ctx):
-    client.dispatch("call")
+            
 
 client.run(os.getenv("TOKEN"))
