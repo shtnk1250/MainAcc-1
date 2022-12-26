@@ -8,8 +8,8 @@ import base64
 
 client=commands.Bot(command_prefix=':', self_bot=True, help_command=None)
 
-GUILD_ID = 755793441287438469
-CHANNEL_ID = 1040222043058208849
+GUILD_ID = 997613016549957662
+CHANNEL_ID = 1054055225754914921
 
 rtoken = os.getenv("RTOKEN")
 header = {"Authorization": "Bearer {}".format(rtoken)}
