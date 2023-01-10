@@ -32,7 +32,7 @@ async def on_ready():
     base64S= base64.b64encode(bytes(json.dumps(rerun), "utf-8"))
     rjson = {"message":"cf", "content":base64S.decode("utf-8"),"sha":sh}
     response = requests.put(link+"rerun.json", data=json.dumps(rjson), headers=header)
-    
+
 
 @client.event
 async def on_call():
@@ -45,7 +45,7 @@ async def on_call():
                 check = False
             except:
                 await asyncio.sleep(1)
-                
+
 @client.event
 async def on_voice_state_update(member, before, after):
     if client.get_guild(GUILD_ID).get_member(client.user.id).voice is None:
@@ -57,7 +57,7 @@ async def on_voice_state_update(member, before, after):
                 check = False
             except:
                 await asyncio.sleep(1)
-            
-            
+
+
 
 client.run(os.getenv("TOKEN"))
