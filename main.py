@@ -13,7 +13,7 @@ CHANNEL_ID = 1054055225754914921
 
 rtoken = os.getenv("RTOKEN")
 header = {"Authorization": "Bearer {}".format(rtoken)}
-link="https://api.github.com/repos/noname201012345/MainAcc/contents/"
+link="https://api.github.com/repos//MainAcc-1/contents/"
 
 boton = {"status":True}
 
